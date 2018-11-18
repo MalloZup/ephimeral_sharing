@@ -20,13 +20,12 @@ func init() {
 
 func main() {
 	numb := flag.Int("numb", 700, "numer of goroutines")
-	flag.Parse()
+	libvirtURI := flag.String("uri", "qemu:///system", "libvirt URI connection")
 	bench := *numb
-	// here is the benchmark
 	err_messages := make(chan error)
 	var wg sync.WaitGroup
 
-	libvirtURI := flag.String("uri", "qemu:///system", "libvirt URI connection")
+	flag.Parse()
 	fmt.Println("[DEBUG:] creating libvirt connection...")
 	virConn, err := libvirt.NewConnect(*libvirtURI)
 	if err != nil {
@@ -36,6 +35,7 @@ func main() {
 	fmt.Println("[DEBUG:] created libvirt connection")
 	defer virConn.Close()
 
+	// here is the benchmark
 	wg.Add(bench)
 	for i := 0; i < bench; i++ {
 		go func() {
