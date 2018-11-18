@@ -1,5 +1,12 @@
 # ephimeral_sharing
 
+# Quick for the impatient:
+
+Outside gopath ( using go module here)
+`go build .`
+`./ephimeral_sharing -numb 500 -uri=qemu+tcp://remote-server.com/system`
+
+
 # Desc/goals:
 
 this repo was create for vefiying a race condition behaviour happening with volume.download and volume.upload call with libvirt and  with a opensource project
