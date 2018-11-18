@@ -2,7 +2,7 @@
 
 # Desc/goals:
 
-this repo was create for vefiying a race condition behaviour happening with volume.download and volume.upload call with libvirt.
+this repo was create for vefiying a race condition behaviour happening with volume.download and volume.upload call with libvirt and  with a opensource project
 
 The code is in a good shape however i did not focus on refactoring/design of it because it was a POC.
 The main goal of this binary is to:

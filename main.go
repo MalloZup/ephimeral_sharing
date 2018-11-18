@@ -19,13 +19,16 @@ func init() {
 }
 
 func main() {
+
+	// parse arg
 	numb := flag.Int("numb", 700, "numer of goroutines")
 	libvirtURI := flag.String("uri", "qemu:///system", "libvirt URI connection")
+	flag.Parse()
+	// this is for goroutines sync
 	bench := *numb
 	err_messages := make(chan error)
 	var wg sync.WaitGroup
-
-	flag.Parse()
+	// create libvirt connection depending on var
 	fmt.Println("[DEBUG:] creating libvirt connection...")
 	virConn, err := libvirt.NewConnect(*libvirtURI)
 	if err != nil {
